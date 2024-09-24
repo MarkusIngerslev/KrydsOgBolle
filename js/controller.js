@@ -40,6 +40,26 @@ function setCell(row, col) {
     // Dump hele griddet i console
     model.dump();
 
+    //Tjek om der er en vinder via modellen
+    if (model.checkWinner(value)) {
+        alert(`Player ${value === 1 ? "X" : "O"} wins!`);
+        restartGame();
+        return;
+    }
+
+    // Tjek om der er uafgjort
+    if (model.isDraw()) {
+        alert("It's a draw!");
+        restartGame();
+        return;
+    }
+
     // Skift spiller
     currentPlayer = currentPlayer === 1 ? 2 : 1;
+}
+
+function restartGame() {
+    model.init(3, 3);
+    view.createBoard(3, 3);
+    currentPlayer = 1;
 }
