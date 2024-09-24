@@ -1,0 +1,125 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs and editors #
+####################
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Python #
+##########
+*.py[cod]
+__pycache__/
+*.so
+
+# Node.js #
+###########
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Java #
+########
+*.class
+*.jar
+*.war
+*.ear
+*.class
+*.log
+*.jmx
+*.iml
+*.ipr
+*.iws
+target/
+build/
+
+# C/C++ #
+#########
+*.out
+*.obj
+*.elf
+*.map
+*.hex
+*.bin
+*.o
+*.d
+
+# Rust #
+########
+target/
+Cargo.lock
+
+# Go #
+######
+bin/
+vendor/
+
+# Ruby #
+########
+*.gem
+*.rbc
+.ruby-version
+.ruby-gemset
+.rvmrc
+.redcar/
+.sass-cache/
+.bundle/
+vendor/bundle/
+lib/bundler/man/
+.yardoc
+_yardoc/
+.yard/
+.yardoc/
+coverage/
+tmp/
+
+# PHP #
+#######
+vendor/
+composer.lock
+
+# JavaScript #
+##############
+node_modules/
+npm-debug.log
+yarn-error.log
+dist/
+coverage/
