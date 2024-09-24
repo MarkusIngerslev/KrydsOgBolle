@@ -1,32 +1,32 @@
-"use strict";
+import * as view from "./view.js";
+import * as model from "./model.js";
 
-import { View } from "./view.js";
-// import { Model } from "./model.js";
+window.addEventListener("load", init);
 
-window.addEventListener("load", start);
+function init() {
+    const rows = 3;
+    const cols = 3;
 
-function start() {
-    const controller = new Controller();
-    controller.start();
+    // Initialiserer filer
+    model.init(rows, cols);
+    view.init();
+
+    // Gør modellen og viewet tilgængelige i console
+    window.model = model;
+    window.view = view;
+
+    // Initialiserer brættet i viewet
+    view.createBoard(rows, cols);
+    view.setClickListener(handleCellClick);
 }
 
-class Controller {
-    constructor() {
-        this.rows = 3;
-        this.cols = 3;
-        this.view = new View(this.rows, this.cols);
-    }
+function handleCellClick(row, col) {
+    // Test: skriv en værdi til cellen og læs den derefter
+    model.writeToCell(row, col, "X");
+    const value = model.readFromCell(row, col);
+    console.log(`Cell clicked - Row: ${row}, Col: ${col}`);
+    console.log(`Value read: ${value}`);
 
-    start() {
-        // Initialiserer brættet i viewet
-        this.view.createBoard();
-
-        // Tilføjer event listener for klik på cellerne
-        this.view.setClickListener(this.handleCellClick.bind(this));
-    }
-
-    handleCellClick(row, col) {
-        // Udskriv række og kolonne til konsollen
-        console.log(`Cell clicked - Row: ${row}, Col: ${col}`);
-    }
+    // Dump hele griddet til console
+    model.dump();
 }
