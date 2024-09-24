@@ -1,4 +1,4 @@
-export { init, createBoard, setClickListener };
+export { init, createBoard, setClickListener, updateCell };
 
 function init() {
     console.log("View initialized");
@@ -29,4 +29,12 @@ function setClickListener(handler) {
             handler(row, col); // Kald controllerens event-handler
         }
     });
+}
+
+function updateCell(row, col, displayValue) {
+    // Find cellen i viewet og opdater dens tekstindhold
+    const cell = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+    if (cell) {
+        cell.textContent = displayValue;
+    }
 }

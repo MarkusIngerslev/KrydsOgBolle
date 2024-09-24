@@ -3,6 +3,8 @@ import * as model from "./model.js";
 
 window.addEventListener("load", init);
 
+let currentPlayer = 1;
+
 function init() {
     const rows = 3;
     const cols = 3;
@@ -17,16 +19,27 @@ function init() {
 
     // Initialiserer brættet i viewet
     view.createBoard(rows, cols);
-    view.setClickListener(handleCellClick);
+    view.setClickListener(setCell);
 }
 
-function handleCellClick(row, col) {
-    // Test: skriv en værdi til cellen og læs den derefter
-    model.writeToCell(row, col, "X");
-    const value = model.readFromCell(row, col);
-    console.log(`Cell clicked - Row: ${row}, Col: ${col}`);
-    console.log(`Value read: ${value}`);
+function setCell(row, col) {
+    // Tjek om cellen allerede er optaget
+    if (model.readFromCell(row, col) !== 0) {
+        console.log("Cell already occupied");
+        return;
+    }
 
-    // Dump hele griddet til console
+    // Skift mellem spiller 1 og spiller 2
+    const value = currentPlayer;
+    model.writeToCell(row, col, value);
+
+    // Opdater viewet: vis 'X' for spiller 1 og 'O' for spiller 2
+    const displayValue = value === 1 ? "X" : "O";
+    view.updateCell(row, col, displayValue);
+
+    // Dump hele griddet i console
     model.dump();
+
+    // Skift spiller
+    currentPlayer = currentPlayer === 1 ? 2 : 1;
 }

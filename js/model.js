@@ -4,7 +4,7 @@ let grid = [];
 
 function init(rows, cols) {
     // Initialiserer griddet som et array af arrays (2D array)
-    grid = Array.from({ length: rows }, () => Array(cols).fill(null));
+    grid = Array.from({ length: rows }, () => Array(cols).fill(0));
     console.log("Model initialized");
 }
 
